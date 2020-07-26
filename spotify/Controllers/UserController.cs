@@ -15,6 +15,7 @@ namespace spotify.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("CorsPolicy")]
     public class UserController : ControllerBase
     {
         private readonly IUserRepository repository;
