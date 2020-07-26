@@ -24,18 +24,18 @@ namespace spotify.Controllers
             var result = repository.CreateNewPlayList(playListData);
             if (result)
             {
-                return Ok("PlayList Creation Successful");
+                return Ok(new { message = "PlayList Creation Successful" });
             }
-            return BadRequest("Duplicate PlayList creation not allowed");
+            return BadRequest(new { message = "Duplicate PlayList creation not allowed" });
         }
 
         [HttpPost("addsongtoplaylist")]
         public IActionResult PostSongToPlayList(AddSongToPlayListRequest songData)
         {
             if (repository.AddSongToPlayList(songData))
-                return Ok("success");
+                return Ok(new { message = "success" });
             else
-                return BadRequest("Failure");
+                return BadRequest(new { message = "Failure" });
         }
         [HttpDelete("deletesongfromplaylist")]
         public IActionResult DeleteSongFromPlayList(DeleteSongFromPlayListRequest songData)
@@ -46,16 +46,16 @@ namespace spotify.Controllers
         [HttpDelete("deleteplaylist")]
         public IActionResult DeletePlayList(int playListId)
         {
-            if(repository.DeletePlayList(playListId))
-                return Ok("PlayList Deleted");
-            return BadRequest("Error Deleting PlayList");
+            if (repository.DeletePlayList(playListId))
+                return Ok(new { message = "PlayList Deleted" });
+            return BadRequest(new {message = "Error Deleting PlayList"});
         }
         [HttpPut("updateplaylistname")]
         public IActionResult UpdatePlayList(UpdatePlayListRequest playListData)
         {
             if(repository.UpdatePlayList(playListData))
-                return Ok("Update Successful");
-            return BadRequest("Problem Encountered, try again!");
+                return Ok(new { message = "Update Successful" });
+            return BadRequest(new { message = "Problem Encountered, try again!" });
         }
 
         [HttpPost("getsongsbyplaylist")]
