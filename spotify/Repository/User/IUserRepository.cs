@@ -14,7 +14,7 @@ namespace spotify.Repository.User
     public interface IUserRepository
     {
         public bool RegisterUser(AddUserRegistrationRequest data);
-        public bool LoginUser(AddUserLoginRequest data);
+        public int LoginUser(AddUserLoginRequest data);
         public UserAuth ShowUserInformation(int id);
         
     }

@@ -9,7 +9,7 @@ using spotify.Models;
 namespace spotify.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200722110517_Migrations")]
+    [Migration("20200727025129_Migrations")]
     partial class Migrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -93,7 +93,7 @@ namespace spotify.Migrations
                     b.ToTable("userPlaylistSongs");
                 });
 
-            modelBuilder.Entity("spotify.Models.playlists.playlist", b =>
+            modelBuilder.Entity("spotify.Models.playlists.Playlist", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -140,7 +140,7 @@ namespace spotify.Migrations
 
             modelBuilder.Entity("spotify.Models.UserPlaylistSongs.UserPlaylistSong", b =>
                 {
-                    b.HasOne("spotify.Models.playlists.playlist", "Playlist")
+                    b.HasOne("spotify.Models.playlists.Playlist", "Playlist")
                         .WithMany()
                         .HasForeignKey("PlaylistId")
                         .OnDelete(DeleteBehavior.Cascade)

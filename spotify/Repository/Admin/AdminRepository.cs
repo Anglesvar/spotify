@@ -49,7 +49,7 @@ namespace spotify.Repository
                 newSong.SongCoverImage = data.SongCoverImage;
                 newSong.SongLink = data.SongLink;
                 newSong.SongName = data.SongName;
-
+                //newSong.Follow = data.Follow;
                 _db.songs.Add(newSong);
                 _db.SaveChanges();
                 return true;
@@ -66,11 +66,30 @@ namespace spotify.Repository
                 song.SongArtist = string.IsNullOrEmpty(data.SongArtist) ? song.SongArtist : data.SongArtist;
                 song.SongLink = string.IsNullOrEmpty(data.SongLink) ? song.SongLink : data.SongLink;
                 song.SongCoverImage = string.IsNullOrEmpty(data.SongCoverImage) ? song.SongCoverImage : data.SongCoverImage;
+            
                 _db.SaveChanges();
                 return true;
             }
             return false;
         }
+        /*public bool UpdateFollowArtist(int Id)
+        {
+            var song = _db.songs.Find(Id);
+            List<Song> allSongs = _db.songs.Where(a => a.SongArtist == song.SongArtist).ToList();
+            
+            foreach(Song song1 in allSongs)
+            {
+                if (song.Follow == 1)   //For Unfollow
+                    song.Follow = 0;
+                else
+                {
+                    song.Follow = 1;        //For Follow
+                }
+                    
+            }
+            _db.SaveChanges();
+            return true;
+        }*/
         public bool DeleteSong(int id)
         {
             Song song = _db.songs.Find(id);

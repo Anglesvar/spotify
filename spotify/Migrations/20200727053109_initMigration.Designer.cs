@@ -9,8 +9,8 @@ using spotify.Models;
 namespace spotify.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200726131626_InitMigrations")]
-    partial class InitMigrations
+    [Migration("20200727053109_initMigration")]
+    partial class initMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

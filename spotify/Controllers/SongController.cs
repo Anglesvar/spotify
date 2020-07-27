@@ -47,5 +47,11 @@ namespace spotify.Controllers
         {
             return Ok(repository.GetSongById(id));
         }
+
+        [HttpPost("excludedSongs")]
+        public IActionResult GetExcludedSongs(int playListId)
+        {
+            return Ok(repository.GetSongsExcludedFromAllSongs(playListId));
+        }
     }
 }

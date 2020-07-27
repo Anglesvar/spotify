@@ -45,17 +45,17 @@ namespace spotify.Repository.User
             return false;
         }
 
-        public bool LoginUser(AddUserLoginRequest loginData)
+        public int LoginUser(AddUserLoginRequest loginData)
         {
             if (loginData != null)
             {
-                var login = _db.userAuth.Where(a => a.Email == loginData.Email && a.Password == loginData.Password).ToList();
-                if (login.Count == 1)
+                var login = _db.userAuth.Where(a => a.Email == loginData.Email && a.Password == loginData.Password).FirstOrDefault();
+                if (login!=null)
                 {
-                    return true;
+                    return login.Id;
                 }
             }
-            return false;
+            return 0;
         }
         public UserAuth ShowUserInformation(int id)
         {

@@ -35,7 +35,7 @@ namespace spotify.Controllers
             }
             else
             {
-                return Unauthorized("User already Exists, Duplication not allowed.");
+                return Unauthorized(new { message = "User already Exists, Duplication not allowed." });
             }
 
         }
@@ -43,10 +43,10 @@ namespace spotify.Controllers
         public IActionResult PostLoginUser(AddUserLoginRequest loginData)
         {
             var success = repository.LoginUser(loginData);
-            if (success)
-                return Ok("Login Successful");
+            if (success!=0)
+                return Ok(new { message = "Login Successful" ,ownerId = success});
             else
-                return Unauthorized("Authorization Failed");
+                return Unauthorized(new { message = "Authorization Failed" });
         }
 
         [HttpPost("getuserinfo")]

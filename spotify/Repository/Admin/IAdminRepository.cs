@@ -17,6 +17,8 @@ namespace spotify.Repository.Admin
         public bool AddSong(AddSongRequest data);
         public bool UpdateSong(UpdateSongRequest data);
         public bool DeleteSong(int id);
+        //public bool UpdateFollowArtist(int Id);
+
         public string GenerateJSONWebToken(AddAdminLoginRequest loginData);
     }
 }

@@ -71,5 +71,13 @@ namespace spotify.Controllers
                 return BadRequest(new { message = "Deletion UnSuccessful" });
             }
         }
+        /*[HttpPut("follow")]
+        public IActionResult FollowArtist(int songId)
+        {
+            if (repository.UpdateFollowArtist(songId))
+                return Ok(new { message = "Follow artist done" });
+            else
+                return BadRequest(new { message = "Error following Artist" });
+        }*/
     }
 }

@@ -13,5 +13,6 @@ namespace spotify.Repository.Songs
         public List<Song> SearchSongByAlbumName(string albumName);
         public List<Song> GetAllSongs();
         public Song GetSongById(int id);
+        public List<Song> GetSongsExcludedFromAllSongs(int playlistId);
     }
 }

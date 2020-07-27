@@ -39,7 +39,7 @@ namespace spotify.Controllers
             else
                 return BadRequest(new { message = "Failure" });
         }
-        [HttpDelete("deletesongfromplaylist")]
+        [HttpPost("deletesongfromplaylist")]
         public IActionResult DeleteSongFromPlayList(DeleteSongFromPlayListRequest songData)
         {
             return Ok(repository.DeleteSongFromPlayList(songData));

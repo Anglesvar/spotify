@@ -2,7 +2,7 @@
 
 namespace spotify.Migrations
 {
-    public partial class InitMigrations : Migration
+    public partial class initMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
